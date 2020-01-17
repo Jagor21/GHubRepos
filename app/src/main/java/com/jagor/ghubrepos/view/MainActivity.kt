@@ -1,7 +1,8 @@
-package com.jagor.ghubrepos
+package com.jagor.ghubrepos.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jagor.ghubrepos.R
 
 class MainActivity : AppCompatActivity() {
 
