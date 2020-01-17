@@ -12,7 +12,7 @@ class GitHUbService {
     private val BASE_URL = "https://api.github.com"
     private val api: GitHubApi
 
-    init{
+    init {
         api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

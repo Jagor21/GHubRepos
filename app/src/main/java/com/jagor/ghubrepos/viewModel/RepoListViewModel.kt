@@ -46,7 +46,7 @@ class RepoListViewModel : ViewModel() {
         disposable.add(
             githubService.getUser(user)
                 .subscribeOn(Schedulers.newThread())
-                .subscribeWith(object : DisposableSingleObserver<Owner>(){
+                .subscribeWith(object : DisposableSingleObserver<Owner>() {
                     override fun onSuccess(value: Owner) {
                         owner.postValue(value)
                     }

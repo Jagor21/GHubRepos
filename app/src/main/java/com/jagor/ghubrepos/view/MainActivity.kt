@@ -37,48 +37,45 @@ class MainActivity : AppCompatActivity() {
         observeViewModel()
     }
 
-    private fun observeViewModel(){
-        viewModel.repos.observe(this, Observer{ repos ->
-            repos?.let{
+    private fun observeViewModel() {
+        viewModel.repos.observe(this, Observer { repos ->
+            repos?.let {
                 repos_list.visibility = View.VISIBLE
                 repoListAdapter.updateRepos(it)
             }
         })
-        viewModel.repoLoadError.observe(this, Observer{isError ->
-            isError?.let{
-                listError.visibility = if(it) View.VISIBLE else View.GONE
-                owner_details_container.visibility = if(it) View.GONE else View.VISIBLE
+        viewModel.repoLoadError.observe(this, Observer { isError ->
+            isError?.let {
+                listError.visibility = if (it) View.VISIBLE else View.GONE
+                owner_details_container.visibility = if (it) View.GONE else View.VISIBLE
             }
         })
 
-        viewModel.loading.observe(this, Observer {isLoading ->
-            isLoading?.let{
-                loading_spinner.visibility = if(it) View.VISIBLE else View.GONE
-                if(it){
-                    listError .visibility = View.GONE
+        viewModel.loading.observe(this, Observer { isLoading ->
+            isLoading?.let {
+                loading_spinner.visibility = if (it) View.VISIBLE else View.GONE
+                if (it) {
+                    listError.visibility = View.GONE
                     repos_list.visibility = View.GONE
                 }
             }
         })
 
-        viewModel.owner.observe(this, Observer{owner ->
-            owner?.let{
+        viewModel.owner.observe(this, Observer { owner ->
+            owner?.let {
                 inflateOwnerDetails(owner)
             }
 
         })
     }
 
-    private fun inflateOwnerDetails(owner: Owner){
+    private fun inflateOwnerDetails(owner: Owner) {
         owner_details_container.visibility = View.VISIBLE
         owner_avatar.loadImage(owner.avatarUrl)
         owner_avatar.visibility = View.VISIBLE
         owner_name.text = owner.login
         public_repos_count.text = owner.public_repos.toString()
     }
-
-
-
 
 
 }
