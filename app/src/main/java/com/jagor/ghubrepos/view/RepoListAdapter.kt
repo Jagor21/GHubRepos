@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jagor.ghubrepos.R
 import com.jagor.ghubrepos.model.Repo
+import com.jagor.ghubrepos.utils.formatDateFromString
 import kotlinx.android.synthetic.main.repo_item_list.view.*
 
 class RepoListAdapter(var repos: ArrayList<Repo>) :
@@ -42,8 +43,8 @@ class RepoListAdapter(var repos: ArrayList<Repo>) :
             repoName.text = repo.name
             repoPrivate.text = if (repo.private) "Private" else "Public"
             repoLanguage.text = repo.language
-            createdAt.text = repo.createdAt
-            updatedAt.text = repo.updatedAt
+            createdAt.text = formatDateFromString(repo.createdAt)
+            updatedAt.text = formatDateFromString(repo.updatedAt)
         }
     }
 }
