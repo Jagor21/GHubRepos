@@ -3,4 +3,12 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="repo_name_text_color_black">#000000</color>
+    <color name="repo_owner_text_color_black">#000000</color>
+    <color name="repo_private_text_color_gray">#6F6F7A</color>
+    <color name="repo_created_at_string_text_color_black">#000000</color>
+    <color name="repo_updated_at_string_text_color_black">#000000</color>
+    <color name="repo_created_at_text_color_black">#000000</color>
+    <color name="repo_updated_at_text_color_black">#000000</color>
+    <color name="private_repo_text_text_color_gray">#6F6F7A</color>
 </resources>

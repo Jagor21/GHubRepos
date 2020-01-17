@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="repo_item_height_100dp">100dp</dimen>
+    <dimen name="repo_item_image_view_padding_8dp">8dp</dimen>
+    <dimen name="created_at_margin_start_5dp">5dp</dimen>
+    <dimen name="updated_at_margin_start_5dp">5dp</dimen>
+    <dimen name="repo_name_text_size_18sp">18sp</dimen>
+    <dimen name="repo_owner_text_size_16sp">16sp</dimen>
+    <dimen name="repo_private_text_size_14sp">14sp</dimen>
+    <dimen name="repo_created_at_string_text_size_14sp">14sp</dimen>
+    <dimen name="repo_updated_at_string_text_size_14sp">14sp</dimen>
+    <dimen name="repo_created_at_text_size_14sp">14sp</dimen>
+    <dimen name="repo_updated_at_text_size_14sp">14sp</dimen>
+    <dimen name="repo_name_margin_start_10dp">10dp</dimen>
+    <dimen name="repo_item_margin_bottom_8dp">8dp</dimen>
+    <dimen name="owner_name_margin_start_8dp">8dp</dimen>
+    <dimen name="public_repos_count_margin_start_5dp">5dp</dimen>
+    <dimen name="owner_name_text_size_22sp">22sp</dimen>
+    <dimen name="private_repo_text_text_size_16sp">16sp</dimen>
+</resources>

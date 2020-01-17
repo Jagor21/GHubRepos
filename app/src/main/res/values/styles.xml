@@ -8,4 +8,57 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RepoName">
+        <item name="android:textSize">@dimen/repo_name_text_size_18sp</item>
+        <item name="android:textColor">@color/repo_name_text_color_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="RepoLanguage">
+        <item name="android:textSize">@dimen/repo_owner_text_size_16sp</item>
+        <item name="android:textColor">@color/repo_owner_text_color_black</item>
+    </style>
+
+    <style name="RepoPrivate">
+        <item name="android:textSize">@dimen/repo_private_text_size_14sp</item>
+        <item name="android:textColor">@color/repo_private_text_color_gray</item>
+    </style>
+
+    <style name="RepoCreatedAtString">
+        <item name="android:textSize">@dimen/repo_created_at_string_text_size_14sp</item>
+        <item name="android:textColor">@color/repo_created_at_string_text_color_black</item>
+    </style>
+
+    <style name="RepoUpdatedAtString">
+        <item name="android:textSize">@dimen/repo_updated_at_string_text_size_14sp</item>
+        <item name="android:textColor">@color/repo_updated_at_string_text_color_black</item>
+    </style>
+
+
+    <style name="RepoCreatedAt">
+        <item name="android:textSize">@dimen/repo_created_at_text_size_14sp</item>
+        <item name="android:textColor">@color/repo_created_at_text_color_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="RepoUpdatedAt">
+        <item name="android:textSize">@dimen/repo_updated_at_text_size_14sp</item>
+        <item name="android:textColor">@color/repo_updated_at_text_color_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="OwnerName">
+        <item name="android:textSize">@dimen/owner_name_text_size_22sp</item>
+        <item name="android:textColor">@color/repo_name_text_color_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="PublicReposText">
+        <item name="android:textSize">@dimen/private_repo_text_text_size_16sp</item>
+        <item name="android:textColor">@color/private_repo_text_text_color_gray</item>
+    </style>
+
 </resources>

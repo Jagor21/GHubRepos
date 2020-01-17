@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">GHubRepos</string>
+    <string name="app_name">GhubApp</string>
+    <string name="error_name">An error occurred while loading data</string>
+    <string name="repo_name_placeholder">Repo name</string>
+    <string name="repo_private_placeholder">Private</string>
+    <string name="repo_language_placeholder">Language is not detected</string>
+    <string name="created_at_placeholder">11.11.11</string>
+    <string name="created_at_string">Created at:</string>
+    <string name="updated_at_string">Updated at:</string>
+    <string name="updated_at_placeholder">12.11.11</string>
+    <string name="public_repos_string">Public repos:</string>
+    <string name="public_repos_count_placeholder">5</string>
 </resources>
