@@ -1,111 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.MainActivity"
+    android:id="@+id/swipe_refresh_layout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/owner_details_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_field">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/owner_avatar"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/owner_details_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_field">
+
+            <ImageView
+                android:id="@+id/owner_avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintEnd_toStartOf="@id/public_repos_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/owner_name"
+                style="@style/OwnerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/owner_name_margin_start_8dp"
+                android:layout_marginLeft="@dimen/owner_name_margin_start_8dp"
+                android:hint="OwnerName"
+                app:layout_constraintStart_toEndOf="@id/owner_avatar"
+                app:layout_constraintTop_toTopOf="@id/owner_avatar" />
+
+            <TextView
+                android:id="@+id/public_repos_text"
+                style="@style/PublicReposText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/public_repos_string"
+                app:layout_constraintStart_toStartOf="@id/owner_name"
+                app:layout_constraintTop_toBottomOf="@id/owner_name" />
+
+            <TextView
+                android:id="@+id/public_repos_count"
+                style="@style/PublicReposText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/public_repos_count_margin_start_5dp"
+                android:layout_marginLeft="@dimen/public_repos_count_margin_start_5dp"
+                android:hint="@string/public_repos_count_placeholder"
+                app:layout_constraintStart_toEndOf="@id/public_repos_text"
+                app:layout_constraintTop_toBottomOf="@id/owner_name" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/search_field"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintEnd_toStartOf="@id/public_repos_text"
+            android:drawableEnd="@drawable/ic_search"
+            android:drawableRight="@drawable/ic_search"
+            android:drawablePadding="5dp"
+            android:imeOptions="actionSearch"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/owner_name"
-            style="@style/OwnerName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/owner_name_margin_start_8dp"
-            android:layout_marginLeft="@dimen/owner_name_margin_start_8dp"
-            android:hint="OwnerName"
-            app:layout_constraintStart_toEndOf="@id/owner_avatar"
-            app:layout_constraintTop_toTopOf="@id/owner_avatar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/repos_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/owner_details_container"
+            tools:listitem="@layout/repo_item_list" />
 
         <TextView
-            android:id="@+id/public_repos_text"
-            style="@style/PublicReposText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/public_repos_string"
-            app:layout_constraintStart_toStartOf="@id/owner_name"
-            app:layout_constraintTop_toBottomOf="@id/owner_name" />
+            android:id="@+id/listError"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/error_name"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/public_repos_count"
-            style="@style/PublicReposText"
+        <ProgressBar
+            android:id="@+id/loading_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/public_repos_count_margin_start_5dp"
-            android:layout_marginLeft="@dimen/public_repos_count_margin_start_5dp"
-            android:hint="@string/public_repos_count_placeholder"
-            app:layout_constraintStart_toEndOf="@id/public_repos_text"
-            app:layout_constraintTop_toBottomOf="@id/owner_name" />
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/search_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableEnd="@drawable/ic_search"
-        android:drawableRight="@drawable/ic_search"
-        android:drawablePadding="5dp"
-        android:imeOptions="actionSearch"
-        android:paddingEnd="10dp"
-        android:paddingRight="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/repos_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/owner_details_container"
-        tools:listitem="@layout/repo_item_list" />
-
-    <TextView
-        android:id="@+id/listError"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="@string/error_name"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/loading_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

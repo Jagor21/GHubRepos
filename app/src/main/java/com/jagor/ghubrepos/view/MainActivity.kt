@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var viewModel: RepoListViewModel
     private var repoListAdapter: RepoListAdapter = RepoListAdapter(arrayListOf())
+    private lateinit var userName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,12 +27,21 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(RepoListViewModel::class.java)
 
         search_field.onDrawableClick {
-            viewModel.getReposByUser(it.text.toString())
+            userName = it.text.toString() ?: "github"
+            viewModel.getReposByUser(userName)
         }
 
         repos_list.apply {
             this.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             this.adapter = repoListAdapter
+        }
+
+        swipe_refresh_layout.setOnRefreshListener {
+            if (userName != null) {
+                viewModel.getReposByUser(userName)
+            } else {
+                return@setOnRefreshListener
+            }
         }
 
         observeViewModel()
@@ -58,6 +68,12 @@ class MainActivity : AppCompatActivity() {
                     listError.visibility = View.GONE
                     repos_list.visibility = View.GONE
                 }
+            }
+        })
+
+        viewModel.refreshLayoutLoading.observe(this, Observer { isRefreshLayoutLoading ->
+            isRefreshLayoutLoading?.let {
+                swipe_refresh_layout.isRefreshing = it
             }
         })
 

@@ -18,6 +18,7 @@ class RepoListViewModel : ViewModel() {
     val repos = MutableLiveData<List<Repo>>()
     val repoLoadError = MutableLiveData<Boolean>()
     val loading = MutableLiveData<Boolean>()
+    val refreshLayoutLoading = MutableLiveData<Boolean>()
     val owner = MutableLiveData<Owner>()
 
     fun getReposByUser(user: String) {
@@ -34,11 +35,13 @@ class RepoListViewModel : ViewModel() {
                         repos.postValue(value)
                         repoLoadError.postValue(false)
                         loading.postValue(false)
+                        refreshLayoutLoading.postValue(false)
                     }
 
                     override fun onError(e: Throwable) {
                         repoLoadError.postValue(true)
                         loading.postValue(false)
+                        refreshLayoutLoading.postValue(false)
                     }
                 })
         )
